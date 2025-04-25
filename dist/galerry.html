@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Gallery - SDN Jatingaleh 2 Admin</title>
+    
+    <!-- Bootstrap CSS (CDN atau diganti sesuai kebutuhan) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"/>
+    <!-- Font Awesome (untuk ikon, CDN atau diganti sesuai kebutuhan) -->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    
+    <!-- Styles CSS (hasil build SCSS Anda) -->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+        <!-- Top navigation bar -->
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">SDN Jatingaleh 2</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <!-- Navbar Right Menu-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user fa-fw"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- Sidenav + Content Wrapper -->
+    <div id="layoutSidenav">
+    
+        <!-- Side navigation -->
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Data</div>
+                        <a class="nav-link" href="guru.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-graduate"></i></div>
+                            Guru
+                        </a>
+                        <a class="nav-link" href="aduan.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-comment-alt"></i></div>
+                            Aduan
+                        </a>
+                        <a class="nav-link" href="murid.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Murid
+                        </a>
+                        <a class="nav-link" href="news.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
+                            Berita
+                        </a>
+                        <a class="nav-link active" href="galerry.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
+                            Gallery
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Admin 1 SDN Jatingaleh 2
+                </div>
+            </nav>
+        </div>
+    
+        <!-- Main content -->
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <!-- Page Header -->
+                    <h1 class="mt-4">Gallery</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item">
+                            <a href="index.html">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item active">Gallery</li>
+                    </ol>
+    
+                    <!-- Card: Upload Form -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-upload me-1"></i>
+                            Upload Photo
+                        </div>
+                        <div class="card-body">
+                            <form id="galleryUploadForm" enctype="multipart/form-data">
+                                <div class="row">
+                                    <!-- Nama Foto -->
+                                    <div class="col-md-6 mb-3">
+                                        <label for="photoName" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" id="photoName" placeholder="Nama foto..." required />
+                                    </div>
+                                    <!-- File Foto -->
+                                    <div class="col-md-6 mb-3">
+                                        <label for="photoFile" class="form-label">Foto</label>
+                                        <input class="form-control" type="file" id="photoFile" accept="image/*" required />
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+    
+                    <!-- Card: Gallery Table -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-image me-1"></i>
+                            Gallery Table
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="galleryTable" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama</th>
+                                            <th>Foto</th>
+                                            <th>Upload At</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Isi data galeri ter-generate melalui JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+    
+            <!-- Footer -->
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">
+                            Copyright &copy;
+                            <span>Admin UI SDN Jatingaleh 2</span> 2025
+                        </div>
+                        <div>
+                            <a href="#!">Privacy Policy</a>
+                            &middot;
+                            <a href="#!">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS Bundle (CDN atau diganti sesuai kebutuhan) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <!-- Script utama template -->
+    <script src="js/auth.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- (Opsional) Simple-DataTables jika ingin interaksi dataTable serupa halaman lain -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+    
+    <!-- Logika khusus untuk galeri (Anda bisa pisahkan ke file gallery.js) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inisialisasi dataTable (opsional)
+            const galleryTable = document.getElementById('galleryTable');
+            let dataTable = null;
+            if (galleryTable) {
+                dataTable = new simpleDatatables.DataTable(galleryTable);
+            }
+    
+            // Simpan data galeri di memori sementara (contoh)
+            let galleryData = [];
+            let lastId = 0;
+    
+            // Tangani submit form upload
+            const uploadForm = document.getElementById('galleryUploadForm');
+            uploadForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+    
+                const photoName = document.getElementById('photoName').value.trim();
+                const photoFile = document.getElementById('photoFile').files[0];
+                if (!photoName || !photoFile) {
+                    alert('Mohon lengkapi nama dan foto!');
+                    return;
+                }
+    
+                // Contoh handling upload (sederhana, tanpa API):
+                lastId++;
+                const newId = lastId;
+    
+                // Buat URL file sementara
+                const fileURL = URL.createObjectURL(photoFile);
+                const timeNow = new Date().toLocaleString();
+    
+                // Simpan data ke array "galleryData"
+                galleryData.push({
+                    id: newId,
+                    name: photoName,
+                    photo: fileURL,
+                    uploadAt: timeNow
+                });
+    
+                // Reset form
+                uploadForm.reset();
+    
+                // Render ke tabel
+                renderGalleryTable();
+            });
+    
+            function renderGalleryTable() {
+                const tbody = galleryTable.querySelector('tbody');
+                tbody.innerHTML = '';
+    
+                galleryData.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>
+                            <img src="${item.photo}" alt="Foto" style="max-width:80px; max-height:80px; object-fit:cover;">
+                        </td>
+                        <td>${item.uploadAt}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm btn-delete" data-id="${item.id}">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+    
+                // Refresh dataTable agar tampak perubahan data (jika memakai DataTables)
+                if (dataTable) {
+                    dataTable.destroy();  // Hancurkan instance lama
+                    dataTable.init();     // Buat ulang instance
+                }
+            }
+    
+            // Event delegation untuk tombol Delete
+            galleryTable.addEventListener('click', function(e) {
+                const delBtn = e.target.closest('.btn-delete');
+                if (delBtn) {
+                    const dataId = parseInt(delBtn.dataset.id, 10);
+                    if (confirm('Hapus data ini?')) {
+                        galleryData = galleryData.filter(item => item.id !== dataId);
+                        renderGalleryTable();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Data Berita - SDN Jatingaleh 2 Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">
+                <img src="../dist/assets/img/logo.png" style="height: 30px; width: auto; vertical-align: middle; margin-right: 10px;">SDN Jatingaleh 2
+            </a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Data</div>
+                            <a class="nav-link" href="guru.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-graduate"></i></div>
+                                Guru
+                            </a>
+                            <a class="nav-link" href="aduan.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-comment-alt"></i></div>
+                                Aduan
+                            </a>
+                            <a class="nav-link" href="murid.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Murid
+                            </a>
+                            <a class="nav-link active" href="news.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
+                                Berita
+                            </a>
+                            <a class="nav-link" href="galerry.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
+                                Gallery
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Admin 1 SDN jatingaleh 2
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Data Berita</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Data Berita</li>
+                        </ol>
+                        
+                        <!-- Form Tambah Data Berita -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-newspaper me-1"></i>
+                                Tambah Data Berita
+                            </div>
+                            <div class="card-body">
+                                <form id="formNews">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputTitle" type="text" placeholder="Judul Berita" required />
+                                                <label for="inputTitle">Judul Berita</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputAuthor" type="text" placeholder="Penulis" required />
+                                                <label for="inputAuthor">Penulis</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select" id="inputCategory" required>
+                                                    <option value="" selected disabled>Pilih Kategori</option>
+                                                    <option value="Pengumuman">Pengumuman</option>
+                                                    <option value="Kegiatan">Kegiatan</option>
+                                                    <option value="Prestasi">Prestasi</option>
+                                                    <option value="Artikel">Artikel</option>
+                                                </select>
+                                                <label for="inputCategory">Kategori</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="inputImage" class="form-label">Gambar Berita</label>
+                                                <input class="form-control" id="inputImage" type="file" accept="image/*" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label for="inputContent" class="form-label">Isi Berita</label>
+                                                <textarea class="form-control" id="inputContent" rows="6" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 mb-0">
+                                        <div class="d-grid">
+                                            <button class="btn btn-primary btn-block" type="submit">Simpan Berita</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Tabel Data Berita -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Data Berita
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="searchInput" placeholder="Cari berita...">
+                                            <button class="btn btn-outline-secondary" type="button" id="searchButton">
+                                                <i class="fas fa-search"></i> Cari
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 text-end">
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-outline-primary" id="filterAll">Semua</button>
+                                            <button type="button" class="btn btn-outline-warning" id="filterPengumuman">Pengumuman</button>
+                                            <button type="button" class="btn btn-outline-info" id="filterKegiatan">Kegiatan</button>
+                                            <button type="button" class="btn btn-outline-success" id="filterPrestasi">Prestasi</button>
+                                            <button type="button" class="btn btn-outline-secondary" id="filterArtikel">Artikel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <table id="dataTable" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Tanggal</th>
+                                            <th>Judul</th>
+                                            <th>Penulis</th>
+                                            <th>Kategori</th>
+                                            <th>Isi (Ringkas)</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>05/04/2023</td>
+                                            <td>Ujian Akhir Semester Ganjil 2023/2024</td>
+                                            <td>Kepala Sekolah</td>
+                                            <td><span class="badge bg-warning">Pengumuman</span></td>
+                                            <td>Ujian Akhir Semester Ganjil tahun ajaran 2023/2024 akan dilaksanakan pada tanggal 10 Desember 2023...</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm me-1" data-id="1"><i class="fas fa-edit"></i> Edit</button>
+                                                <button class="btn btn-danger btn-sm" data-id="1"><i class="fas fa-trash"></i> Hapus</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>04/04/2023</td>
+                                            <td>Perayaan Hari Kartini 2023</td>
+                                            <td>Komite Sekolah</td>
+                                            <td><span class="badge bg-info">Kegiatan</span></td>
+                                            <td>Dalam rangka memperingati Hari Kartini, SDN Jatingaleh 2 akan menyelenggarakan berbagai lomba dan penampilan...</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm me-1" data-id="2"><i class="fas fa-edit"></i> Edit</button>
+                                                <button class="btn btn-danger btn-sm" data-id="2"><i class="fas fa-trash"></i> Hapus</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>03/04/2023</td>
+                                            <td>Siswa Kelas 6 Raih Medali Emas Olimpiade Matematika</td>
+                                            <td>Guru Matematika</td>
+                                            <td><span class="badge bg-success">Prestasi</span></td>
+                                            <td>Ahmad Rizki, siswa kelas 6A SDN Jatingaleh 2 berhasil meraih medali emas dalam Olimpiade Matematika tingkat Kota Semarang...</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm me-1" data-id="3"><i class="fas fa-edit"></i> Edit</button>
+                                                <button class="btn btn-danger btn-sm" data-id="3"><i class="fas fa-trash"></i> Hapus</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>02/04/2023</td>
+                                            <td>Pentingnya Membaca Sejak Dini</td>
+                                            <td>Tim Perpustakaan</td>
+                                            <td><span class="badge bg-secondary">Artikel</span></td>
+                                            <td>Membaca adalah jendela dunia. Kebiasaan membaca yang ditanamkan sejak dini akan memberikan berbagai manfaat...</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm me-1" data-id="4"><i class="fas fa-edit"></i> Edit</button>
+                                                <button class="btn btn-danger btn-sm" data-id="4"><i class="fas fa-trash"></i> Hapus</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>01/04/2023</td>
+                                            <td>Pembukaan Pendaftaran Siswa Baru Tahun Ajaran 2023/2024</td>
+                                            <td>Kepala Sekolah</td>
+                                            <td><span class="badge bg-warning">Pengumuman</span></td>
+                                            <td>SDN Jatingaleh 2 membuka pendaftaran siswa baru untuk tahun ajaran 2023/2024. Orangtua/wali dapat mendaftarkan putra-putrinya...</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm me-1" data-id="5"><i class="fas fa-edit"></i> Edit</button>
+                                                <button class="btn btn-danger btn-sm" data-id="5"><i class="fas fa-trash"></i> Hapus</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>31/03/2023</td>
+                                            <td>Kunjungan ke Museum Ronggowarsito</td>
+                                            <td>Guru Kelas 4</td>
+                                            <td><span class="badge bg-info">Kegiatan</span></td>
+                                            <td>Siswa kelas 4 melaksanakan kunjungan edukatif ke Museum Ronggowarsito sebagai bagian dari pembelajaran sejarah dan budaya...</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm me-1" data-id="6"><i class="fas fa-edit"></i> Edit</button>
+                                                <button class="btn btn-danger btn-sm" data-id="6"><i class="fas fa-trash"></i> Hapus</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>30/03/2023</td>
+                                            <td>Tim Sepak Bola SDN Jatingaleh 2 Juara O2SN Tingkat Kecamatan</td>
+                                            <td>Guru Olahraga</td>
+                                            <td><span class="badge bg-success">Prestasi</span></td>
+                                            <td>Tim sepak bola SDN Jatingaleh 2 berhasil menjadi juara 1 dalam Olimpiade Olahraga Siswa Nasional (O2SN) tingkat Kecamatan...</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm me-1" data-id="7"><i class="fas fa-edit"></i> Edit</button>
+                                                <button class="btn btn-danger btn-sm" data-id="7"><i class="fas fa-trash"></i> Hapus</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Admin UI SDN Jatingaleh 2</div>
+
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/scripts.js"></script>
+        <script>
+            // Search functionality
+            document.getElementById('searchButton').addEventListener('click', function() {
+                const searchInput = document.getElementById('searchInput').value.toLowerCase();
+                const tableRows = document.querySelectorAll('#dataTable tbody tr');
+                
+                tableRows.forEach(row => {
+                    const rowData = row.textContent.toLowerCase();
+                    if (rowData.includes(searchInput)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Allow search on Enter key press
+            document.getElementById('searchInput').addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    document.getElementById('searchButton').click();
+                }
+            });
+            
+            // Category filter buttons
+            document.getElementById('filterAll').addEventListener('click', function() {
+                filterByCategory('all');
+            });
+            
+            document.getElementById('filterPengumuman').addEventListener('click', function() {
+                filterByCategory('Pengumuman');
+            });
+            
+            document.getElementById('filterKegiatan').addEventListener('click', function() {
+                filterByCategory('Kegiatan');
+            });
+            
+            document.getElementById('filterPrestasi').addEventListener('click', function() {
+                filterByCategory('Prestasi');
+            });
+            
+            document.getElementById('filterArtikel').addEventListener('click', function() {
+                filterByCategory('Artikel');
+            });
+            
+            function filterByCategory(category) {
+                const tableRows = document.querySelectorAll('#dataTable tbody tr');
+                
+                tableRows.forEach(row => {
+                    const categoryCell = row.querySelector('td:nth-child(5)').textContent;
+                    if (category === 'all' || categoryCell.includes(category)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Delete confirmation
+            document.querySelectorAll('.btn-danger').forEach(button => {
+                button.addEventListener('click', function() {
+                    const newsId = this.getAttribute('data-id');
+                    const row = this.closest('tr');
+                    const title = row.querySelector('td:nth-child(3)').textContent;
+                    
+                    if (confirm(`Apakah Anda yakin ingin menghapus berita "${title}"?`)) {
+                        // Here you would typically make an API call to delete the data
+                        // For demo purposes, we'll just remove the row from the table
+                        row.remove();
+                    }
+                });
+            });
+            
+            // Edit news (modal or redirect implementation would go here)
+            document.querySelectorAll('.btn-primary').forEach(button => {
+                button.addEventListener('click', function() {
+                    const newsId = this.getAttribute('data-id');
+                    // In a real application, you might redirect to an edit page or open a modal
+                    alert(`Edit berita dengan ID: ${newsId}`);
+                });
+            });
+        </script>
+    </body>
+</html>

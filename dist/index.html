@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SDN Jatingaleh 2 Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">
+                <img src="../dist/assets/img/logo.png" style="height: 30px; width: auto; vertical-align: middle; margin-right: 10px;">SDN Jatingaleh 2
+            </a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link active" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Data</div>
+                            <a class="nav-link" href="guru.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-graduate"></i></div>
+                                Guru
+                            </a>
+                            <a class="nav-link" href="aduan.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-comment-alt"></i></div>
+                                Aduan
+                            </a>
+                            <a class="nav-link" href="murid.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Murid
+                            </a>
+                            <a class="nav-link" href="news.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
+                                Berita
+                            </a>
+                            <a class="nav-link" href="galerry.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
+                                Gallery
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Admin 1 SDN jatingaleh 2
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                        <div class="row">
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-user-graduate me-1"></i>
+                                        Data Guru
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>NUPTK</th>
+                                                        <th>Nama</th>
+                                                        <th>Kelas yang Diajar</th>
+                                                        <th>Wali Kelas</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>12345678901234</td>
+                                                        <td>Budi Santoso</td>
+                                                        <td>1A</td>
+                                                        <td>1A</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>23456789012345</td>
+                                                        <td>Siti Rahayu</td>
+                                                        <td>1B</td>
+                                                        <td>1B</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>34567890123456</td>
+                                                        <td>Ahmad Ridwan</td>
+                                                        <td>2A</td>
+                                                        <td>2A</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>45678901234567</td>
+                                                        <td>Dewi Lestari</td>
+                                                        <td>2B</td>
+                                                        <td>2B</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>56789012345678</td>
+                                                        <td>Bambang Susilo</td>
+                                                        <td>3A</td>
+                                                        <td>3A</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>67890123456789</td>
+                                                        <td>Rina Wijaya</td>
+                                                        <td>3B</td>
+                                                        <td>3B</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>78901234567890</td>
+                                                        <td>Agus Purnomo</td>
+                                                        <td>4A</td>
+                                                        <td>4A</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8</td>
+                                                        <td>89012345678901</td>
+                                                        <td>Indah Permata</td>
+                                                        <td>4B</td>
+                                                        <td>4B</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9</td>
+                                                        <td>90123456789012</td>
+                                                        <td>Hendra Wijaya</td>
+                                                        <td>5A</td>
+                                                        <td>5A</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>01234567890123</td>
+                                                        <td>Sri Mulyani</td>
+                                                        <td>5B</td>
+                                                        <td>5B</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>11</td>
+                                                        <td>12345098765432</td>
+                                                        <td>Joko Susanto</td>
+                                                        <td>6A</td>
+                                                        <td>6A</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>12</td>
+                                                        <td>23450987654321</td>
+                                                        <td>Tuti Handayani</td>
+                                                        <td>6B</td>
+                                                        <td>6B</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-comment-alt me-1"></i>
+                                        Data Aduan
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nama</th>
+                                                        <th>Aduan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Agus Setiawan</td>
+                                                        <td>Toilet sekolah perlu dibersihkan lebih sering</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Siti Aminah</td>
+                                                        <td>Beberapa lampu kelas tidak berfungsi dengan baik</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Budi Prasetyo</td>
+                                                        <td>AC di ruang komputer sering mati</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Diana Putri</td>
+                                                        <td>Perlu tempat sampah tambahan di area kantin</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Hendra Gunawan</td>
+                                                        <td>Lapangan basket perlu diperbaiki</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Rina Maulida</td>
+                                                        <td>Buku perpustakaan sudah banyak yang rusak</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Data Murid
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NISN</th>
+                                            <th>Nama</th>
+                                            <th>Kelas</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NISN</th>
+                                            <th>Nama</th>
+                                            <th>Kelas</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>0123456789</td>
+                                            <td>Andi Pratama</td>
+                                            <td>1A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>0123456790</td>
+                                            <td>Budi Santoso</td>
+                                            <td>1A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>0123456791</td>
+                                            <td>Citra Dewi</td>
+                                            <td>1B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>0123456792</td>
+                                            <td>Dewi Anggraini</td>
+                                            <td>1B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>0123456793</td>
+                                            <td>Eko Prasetyo</td>
+                                            <td>2A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>0123456794</td>
+                                            <td>Fitri Handayani</td>
+                                            <td>2A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>0123456795</td>
+                                            <td>Gunawan Wibisono</td>
+                                            <td>2B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>0123456796</td>
+                                            <td>Hani Permata</td>
+                                            <td>2B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>0123456797</td>
+                                            <td>Irfan Hakim</td>
+                                            <td>3A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>0123456798</td>
+                                            <td>Jasmine Putri</td>
+                                            <td>3A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td>0123456799</td>
+                                            <td>Kevin Susanto</td>
+                                            <td>3B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>0123456800</td>
+                                            <td>Lina Mariani</td>
+                                            <td>3B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td>0123456801</td>
+                                            <td>Muhammad Rizky</td>
+                                            <td>4A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td>0123456802</td>
+                                            <td>Nina Agustina</td>
+                                            <td>4A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td>0123456803</td>
+                                            <td>Oscar Putra</td>
+                                            <td>4B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td>0123456804</td>
+                                            <td>Putri Rahmawati</td>
+                                            <td>4B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>17</td>
+                                            <td>0123456805</td>
+                                            <td>Qori Hidayat</td>
+                                            <td>5A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>18</td>
+                                            <td>0123456806</td>
+                                            <td>Ratih Kusumawardani</td>
+                                            <td>5A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>19</td>
+                                            <td>0123456807</td>
+                                            <td>Surya Aditya</td>
+                                            <td>5B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20</td>
+                                            <td>0123456808</td>
+                                            <td>Tiara Sari</td>
+                                            <td>5B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>21</td>
+                                            <td>0123456809</td>
+                                            <td>Umar Wicaksono</td>
+                                            <td>6A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>22</td>
+                                            <td>0123456810</td>
+                                            <td>Vina Novita</td>
+                                            <td>6A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>23</td>
+                                            <td>0123456811</td>
+                                            <td>Wahyu Saputra</td>
+                                            <td>6B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>24</td>
+                                            <td>0123456812</td>
+                                            <td>Yanti Lestari</td>
+                                            <td>6B</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Admin UI SDN Jatingaleh 2 2025</div>
+
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>
