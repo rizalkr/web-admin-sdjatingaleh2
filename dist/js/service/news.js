@@ -1,6 +1,6 @@
 async function loadNews() {
     try {
-        const news = await apiFetch('/api/news', { method: 'GET' });
+        const news = await apiFetch(`${CONFIG.API_URL}/api/news`, { method: 'GET' });
         renderNews(news);
     } catch (error) {
         console.error("Gagal load news:", error);
@@ -29,7 +29,7 @@ function renderNews(newsList) {
 
 async function createNews(newsData) {
     try {
-        const newNews = await apiFetch('/api/news', {
+        const newNews = await apiFetch(`${CONFIG.API_URL}/api/news`, {
             method: 'POST',
             body: JSON.stringify(newsData)
         });

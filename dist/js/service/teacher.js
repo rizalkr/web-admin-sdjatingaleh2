@@ -33,7 +33,7 @@ async function loadTeachers() {
         showLoading(true);
         
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:3000/api/teachers', {
+        const response = await fetch(`${CONFIG.API_URL}/api/teachers`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -75,7 +75,7 @@ function renderTeachers(teachers) {
         const tr = document.createElement('tr');
         
         const imageUrl = teacher.image 
-            ? `http://localhost:3000/${teacher.image.replace('public/', '')}`
+            ? `${CONFIG.API_URL}/${teacher.image.replace('public/', '')}`
             : 'assets/img/default-user.png';
             
         // Perubahan di sini: Hapus onerror inline dan ganti dengan event listener
@@ -111,7 +111,6 @@ function renderTeachers(teachers) {
     
     // Setup event listener untuk klik gambar
     setupImageClickHandlers();
-    console.log(teachers)
 }
 
 // Tambahkan fungsi ini setelah renderTeachers
@@ -186,7 +185,7 @@ async function handleAddTeacher(event) {
         }
         
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:3000/api/teachers', {
+        const response = await fetch(`${CONFIG.API_URL}/api/teachers`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -234,7 +233,7 @@ function handleTableActions(event) {
 async function showEditModal(id) {
     try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:3000/api/teachers/${id}`, {
+        const response = await fetch(`${CONFIG.API_URL}/api/teachers/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -257,7 +256,7 @@ async function showEditModal(id) {
         // Show current image if exists
         const currentImage = document.getElementById('currentImage');
         if (teacher.image) {
-            currentImage.src = `http://localhost:3000/${teacher.image.replace('public/', '')}`; // Path sudah termasuk public/
+            currentImage.src = `h${CONFIG.API_URL}/${teacher.image.replace('public/', '')}`; // Path sudah termasuk public/
             currentImage.onerror = function() {
                 this.src = 'assets/img/default-user.png';
                 console.log('Edit modal: Image failed to load:', this.src);
@@ -297,7 +296,7 @@ async function handleEditTeacher() {
         }
         
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:3000/api/teachers/${id}`, {
+        const response = await fetch(`${CONFIG.API_URL}/api/teachers/${id}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -347,7 +346,7 @@ async function confirmDeleteTeacher() {
     
     try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:3000/api/teachers/${id}`, {
+        const response = await fetch(`${CONFIG.API_URL}/api/teachers/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${token}`

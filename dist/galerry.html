@@ -31,10 +31,8 @@
                     <i class="fas fa-user fa-fw"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li><a class="dropdown-item" id="logout" href="#!">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -105,12 +103,10 @@
                         <div class="card-body">
                             <form id="galleryUploadForm" enctype="multipart/form-data">
                                 <div class="row">
-                                    <!-- Nama Foto -->
                                     <div class="col-md-6 mb-3">
                                         <label for="photoName" class="form-label">Nama</label>
                                         <input type="text" class="form-control" id="photoName" placeholder="Nama foto..." required />
                                     </div>
-                                    <!-- File Foto -->
                                     <div class="col-md-6 mb-3">
                                         <label for="photoFile" class="form-label">Foto</label>
                                         <input class="form-control" type="file" id="photoFile" accept="image/*" required />
@@ -174,100 +170,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- Script utama template -->
     <script src="js/auth.js"></script>
+    <script src="js/config.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/service/gallery.js"></script>
     <!-- (Opsional) Simple-DataTables jika ingin interaksi dataTable serupa halaman lain -->
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-    
-    <!-- Logika khusus untuk galeri (Anda bisa pisahkan ke file gallery.js) -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Inisialisasi dataTable (opsional)
-            const galleryTable = document.getElementById('galleryTable');
-            let dataTable = null;
-            if (galleryTable) {
-                dataTable = new simpleDatatables.DataTable(galleryTable);
-            }
-    
-            // Simpan data galeri di memori sementara (contoh)
-            let galleryData = [];
-            let lastId = 0;
-    
-            // Tangani submit form upload
-            const uploadForm = document.getElementById('galleryUploadForm');
-            uploadForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-    
-                const photoName = document.getElementById('photoName').value.trim();
-                const photoFile = document.getElementById('photoFile').files[0];
-                if (!photoName || !photoFile) {
-                    alert('Mohon lengkapi nama dan foto!');
-                    return;
-                }
-    
-                // Contoh handling upload (sederhana, tanpa API):
-                lastId++;
-                const newId = lastId;
-    
-                // Buat URL file sementara
-                const fileURL = URL.createObjectURL(photoFile);
-                const timeNow = new Date().toLocaleString();
-    
-                // Simpan data ke array "galleryData"
-                galleryData.push({
-                    id: newId,
-                    name: photoName,
-                    photo: fileURL,
-                    uploadAt: timeNow
-                });
-    
-                // Reset form
-                uploadForm.reset();
-    
-                // Render ke tabel
-                renderGalleryTable();
-            });
-    
-            function renderGalleryTable() {
-                const tbody = galleryTable.querySelector('tbody');
-                tbody.innerHTML = '';
-    
-                galleryData.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${item.id}</td>
-                        <td>${item.name}</td>
-                        <td>
-                            <img src="${item.photo}" alt="Foto" style="max-width:80px; max-height:80px; object-fit:cover;">
-                        </td>
-                        <td>${item.uploadAt}</td>
-                        <td>
-                            <button class="btn btn-danger btn-sm btn-delete" data-id="${item.id}">
-                                <i class="fas fa-trash"></i> Delete
-                            </button>
-                        </td>
-                    `;
-                    tbody.appendChild(row);
-                });
-    
-                // Refresh dataTable agar tampak perubahan data (jika memakai DataTables)
-                if (dataTable) {
-                    dataTable.destroy();  // Hancurkan instance lama
-                    dataTable.init();     // Buat ulang instance
-                }
-            }
-    
-            // Event delegation untuk tombol Delete
-            galleryTable.addEventListener('click', function(e) {
-                const delBtn = e.target.closest('.btn-delete');
-                if (delBtn) {
-                    const dataId = parseInt(delBtn.dataset.id, 10);
-                    if (confirm('Hapus data ini?')) {
-                        galleryData = galleryData.filter(item => item.id !== dataId);
-                        renderGalleryTable();
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>

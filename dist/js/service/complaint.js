@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return false;
             }
             
-            const response = await fetch(`http://localhost:3000/api/complaints/${complaintId}`, {
+            const response = await fetch(`${CONFIG.API_URL}/api/complaints/${complaintId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function loadComplaints() {
         try {
             const token = localStorage.getItem('token');
-            const apiUrl = 'http://localhost:3000/api/complaints';
+            const apiUrl = `${CONFIG.API_URL}/api/complaints`;
             
             const response = await fetch(apiUrl, {
                 headers: {
